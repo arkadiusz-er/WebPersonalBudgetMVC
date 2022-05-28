@@ -1,0 +1,55 @@
+{% extends "baseHome.html" %}
+
+{% block body %}
+    <ul class="panel-login-registration">
+        <li id="login-option" class="home-active-option">Logowanie</li>
+        <a href="signup/new"><li id="registration-option" class="home-noactive-option">Rejestracja</li></a>
+    </ul>
+    <div class="panel-login h-75">
+        <form method="post" action="login.php" autocomplete="off">
+            <table class="text-center m-auto">
+                <tr>
+                    <td class="w-25 py-2"><label for="login1" class="home-control-label">Login</label></td>
+                    <td class="w-75 py-2"><input type="text" class="form-control" name="login" id="login1" placeholder="Podaj login" /></td>
+                </tr>
+                <tr>
+                    <td class="w-25 py-2"><label for="password1" class="home-control-label">Hasło</label></td>
+                    <td class="w-75 py-2"><input type="password" class="form-control" name="password" id="password1" placeholder="Podaj hasło" /></td>
+                </tr>
+            </table>
+            <div class="row-panel-home">
+                <button type="submit">Zaloguj się</button>
+            </div>
+        </form>
+        
+        <!--<?php
+            if(isset($_SESSION['error']))	echo $_SESSION['error'];
+            unset($_SESSION['error']);
+        ?>-->
+    </div> <!--
+    <div class="panel-registration h-75">
+        <form method="post" autocomplete="off">
+            <table class="text-center m-auto">
+                <tr>
+                    <td class="w-25 py-2"><label for="login2" class="home-control-label">Login</label></td>
+                    <td class="w-75 py-2"><input type="text" class="form-control" name="login" id="login2" placeholder="Podaj login" /></td>
+                </tr>
+                <tr>
+                    <td class="w-25 py-2"><label for="email2" class="home-control-label">Email</label></td>
+                    <td class="w-75 py-2"><input type="email" class="form-control" name="email" id="email2" placeholder="Podaj email" /></td>
+                </tr>
+                <tr>
+                    <td class="w-25 py-2"><label for="password2" class="home-control-label">Hasło</label></td>
+                    <td class="w-75 py-2"><input type="password" class="form-control" name="password" id="password2" placeholder="Podaj hasło" /></td>
+                </tr>
+                <tr>
+                    <td class="w-25 py-2"><label for="password3" class="home-control-label"></label></td>
+                    <td class="w-75 py-2"><input type="password" class="form-control" name="password" id="password3" placeholder="Powtórz hasło" /></td>
+                </tr>
+            </table>
+            <div class="row-panel-home">
+                <button type="submit">Zarejestruj się</button>
+            </div>
+        </form>
+    </div> -->
+{% endblock %}

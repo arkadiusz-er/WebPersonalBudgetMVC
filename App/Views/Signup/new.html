@@ -1,0 +1,78 @@
+{% extends "baseHome.html" %}
+
+{% block body %}
+	<ul class="panel-login-registration">
+		<a href="/"><li id="login-option" class="home-noactive-option">Logowanie</li></a>
+		<li id="registration-option" class="home-active-option">Rejestracja</li>
+	</ul> <!--
+	<div class="panel-login h-75">
+		<form method="post" action="login.php" autocomplete="off">
+			<table class="text-center m-auto">
+				<tr>
+					<td class="w-25 py-2"><label for="login1" class="home-control-label">Login</label></td>
+					<td class="w-75 py-2"><input type="text" class="form-control" name="login" id="login1" placeholder="Podaj login" /></td>
+				</tr>
+				<tr>
+					<td class="w-25 py-2"><label for="password1" class="home-control-label">Hasło</label></td>
+					<td class="w-75 py-2"><input type="password" class="form-control" name="password" id="password1" placeholder="Podaj hasło" /></td>
+				</tr>
+			</table>
+			<div class="row-panel-home">
+				<button type="submit">Zaloguj się</button>
+			</div>
+		</form>
+		
+	</div> -->
+	<div class="panel-registration h-75">
+		<form method="post" autocomplete="off">
+			<table class="text-center m-auto">
+				<tr>
+					<td class="w-25 py-2"><label for="login2" class="home-control-label">Login</label></td>
+					<td class="w-75 py-2"><input type="text" class="form-control" name="login" id="login2" placeholder="Podaj login" /></td>
+				</tr>
+				<!--<?php
+						if(isset($_SESSION['err_login'])) {
+							echo '<tr>'.'<td class="text-danger h6" colspan="2">'.$_SESSION['err_login'].'</td>'.'</tr>';
+							unset($_SESSION['err_login']);
+						}
+				?>-->
+				<tr>
+					<td class="w-25 py-2"><label for="email2" class="home-control-label">Email</label></td>
+					<td class="w-75 py-2"><input type="email" class="form-control"  name="email" id="email2" placeholder="Podaj email" /></td>
+				</tr>
+				<!--<?php
+						if(isset($_SESSION['err_email'])) {
+							echo '<tr>'.'<td class="text-danger h6" colspan="2">'.$_SESSION['err_email'].'</td>'.'</tr>';
+							unset($_SESSION['err_email']);
+						}
+				?>-->
+				<tr>
+					<td class="w-25 py-2"><label for="passwordA" class="home-control-label">Hasło</label></td>
+					<td class="w-75 py-2"><input type="password" class="form-control" name="password" id="passwordA" placeholder="Podaj hasło" /></td>
+				</tr>
+				<!--<?php
+						if(isset($_SESSION['err_pass'])) {
+							echo '<tr>'.'<td class="text-danger h6" colspan="2">'.$_SESSION['err_pass'].'</td>'.'</tr>';
+							unset($_SESSION['err_pass']);
+						}
+				?>-->
+				<tr>
+					<td class="w-25 py-2"><label for="passwordB" class="home-control-label"></label></td>
+					<td class="w-75 py-2"><input type="password" class="form-control" name="password2" id="passwordB" placeholder="Powtórz hasło" /></td>
+				</tr>
+
+				
+			</table>
+			<div class="g-recaptcha" data-sitekey="6LdioxEeAAAAAFKE5wOCfd_-4aT9i6fFix5AiSnu"></div>
+				<!--<?php
+						if(isset($_SESSION['err_bot'])) {
+							echo '<div class="text-danger h6" colspan="2">'.$_SESSION['err_bot'].'</div>';
+							unset($_SESSION['err_bot']);
+						}
+				?>-->
+			<div class="row-panel-home">
+				<button type="submit">Zarejestruj się</button>
+			</div>
+		</form>
+	</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+[21-Apr-2022 21:05:33 Europe/Berlin] Uncaught exception: 'Exception' with message No route matched.'
+Stack trace: #0 R:\Programy\XAMPP\htdocs\PHP_MVC\public\index.php(72): Core\Router->dispatch('projects')
+#1 {main}
+Thrown in: R:\Programy\XAMPP\htdocs\PHP_MVC\Core\Router.php' on line 141
+[21-Apr-2022 21:05:33 Europe/Berlin] Uncaught exception: 'Exception' with message No route matched.'
+Stack trace: #0 R:\Programy\XAMPP\htdocs\PHP_MVC\public\index.php(72): Core\Router->dispatch('favicon.ico')
+#1 {main}
+Thrown in: R:\Programy\XAMPP\htdocs\PHP_MVC\Core\Router.php' on line 141
+[21-Apr-2022 22:56:09 Europe/Berlin] Uncaught exception: 'Exception' with message No route matched.'
+Stack trace: #0 R:\Programy\XAMPP\htdocs\PHP_MVC\public\index.php(72): Core\Router->dispatch('favicon.ico')
+#1 {main}
+Thrown in: R:\Programy\XAMPP\htdocs\PHP_MVC\Core\Router.php' on line 141
