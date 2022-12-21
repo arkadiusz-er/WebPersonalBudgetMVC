@@ -3,7 +3,7 @@
 namespace App;
 
 /*
- * Applicxation configuration
+ * Application configuration
  */
 class Config {
 

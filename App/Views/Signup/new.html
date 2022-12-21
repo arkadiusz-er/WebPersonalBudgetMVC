@@ -1,34 +1,89 @@
 {% extends "baseHome.html" %}
 
+{% block footer %}
+
+	<script src="/js/hideShowPassword.min.js"></script>
+
+	<script>
+		$.validator.addMethod('validPassword',
+			function(value, element, param) {
+				if (value != '') {
+					if (value.match(/.*[a-z]+.*/i) == null) {
+						return false;
+					}
+					if (value.match(/.*\d+.*/) == null) {
+						return false;
+					}
+				}
+				return true;
+			},
+			'Must contain at least one letter and one number'
+		);
+		
+		$(document).ready(function() {
+			/*
+			 * Validate the form
+			 */
+			$('#formSignup').validate({
+				rules: {
+					username: 'required',
+					email: {
+						required: true,
+						email: true,
+						remote: '/account/validate-email'
+					},
+					password: {
+						required: true,
+						minlength: 6,
+						validPassword: true
+					},
+					/*password_confirmation: {
+						equalTo: '#inputPassword'
+					}*/
+				},
+				messages: {
+					email: {
+						remote: 'Email already taken'
+					},
+					username: {
+						remote: 'Login already exists'
+					}
+				}
+			});
+
+			/*
+			 * Show password toggle button
+			 */
+			$('#inputPassword').hideShowPassword({
+				show: false,
+				innerToggle: 'focus'
+			});
+		});
+	</script>
+{% endblock %}
+
 {% block body %}
 	<ul class="panel-login-registration">
 		<a href="/"><li id="login-option" class="home-noactive-option">Logowanie</li></a>
 		<li id="registration-option" class="home-active-option">Rejestracja</li>
-	</ul> <!--
-	<div class="panel-login h-75">
-		<form method="post" action="login.php" autocomplete="off">
-			<table class="text-center m-auto">
-				<tr>
-					<td class="w-25 py-2"><label for="login1" class="home-control-label">Login</label></td>
-					<td class="w-75 py-2"><input type="text" class="form-control" name="login" id="login1" placeholder="Podaj login" /></td>
-				</tr>
-				<tr>
-					<td class="w-25 py-2"><label for="password1" class="home-control-label">Hasło</label></td>
-					<td class="w-75 py-2"><input type="password" class="form-control" name="password" id="password1" placeholder="Podaj hasło" /></td>
-				</tr>
-			</table>
-			<div class="row-panel-home">
-				<button type="submit">Zaloguj się</button>
-			</div>
-		</form>
-		
-	</div> -->
+	</ul> 
+
+	{% if user.errors is not empty %}
+		<p>Errors:</p>
+		<ul>
+			{% for error in user.errors %}
+				<li>{{ error }}</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+
 	<div class="panel-registration h-75">
-		<form method="post" autocomplete="off">
+		<form method="post" autocomplete="off" action="/signup/create" id="formSignup">
 			<table class="text-center m-auto">
 				<tr>
-					<td class="w-25 py-2"><label for="login2" class="home-control-label">Login</label></td>
-					<td class="w-75 py-2"><input type="text" class="form-control" name="login" id="login2" placeholder="Podaj login" /></td>
+					<td class="w-25 py-2"><label for="inputUsername" class="home-control-label">Login</label></td>
+					<td class="w-75 py-2"><input type="text" class="form-control" name="username" id="inputUsername" 
+						placeholder="Login" autofocus value="{{ user.username }}" required /></td>
 				</tr>
 				<!--<?php
 						if(isset($_SESSION['err_login'])) {
@@ -37,8 +92,9 @@
 						}
 				?>-->
 				<tr>
-					<td class="w-25 py-2"><label for="email2" class="home-control-label">Email</label></td>
-					<td class="w-75 py-2"><input type="email" class="form-control"  name="email" id="email2" placeholder="Podaj email" /></td>
+					<td class="w-25 py-2"><label for="inputEmail" class="home-control-label">Email</label></td>
+					<td class="w-75 py-2"><input type="email" class="form-control"  name="email" id="inputEmail" 
+						placeholder="Email address" value="{{ user.email }}" required /></td>
 				</tr>
 				<!--<?php
 						if(isset($_SESSION['err_email'])) {
@@ -47,8 +103,9 @@
 						}
 				?>-->
 				<tr>
-					<td class="w-25 py-2"><label for="passwordA" class="home-control-label">Hasło</label></td>
-					<td class="w-75 py-2"><input type="password" class="form-control" name="password" id="passwordA" placeholder="Podaj hasło" /></td>
+					<td class="w-25 py-2"><label for="inputPassword" class="home-control-label">Hasło</label></td>
+					<td class="w-75 py-2"><input type="password" class="form-control" name="password" id="inputPassword" 
+						placeholder="Password" required /></td>
 				</tr>
 				<!--<?php
 						if(isset($_SESSION['err_pass'])) {
@@ -56,10 +113,11 @@
 							unset($_SESSION['err_pass']);
 						}
 				?>-->
-				<tr>
-					<td class="w-25 py-2"><label for="passwordB" class="home-control-label"></label></td>
-					<td class="w-75 py-2"><input type="password" class="form-control" name="password2" id="passwordB" placeholder="Powtórz hasło" /></td>
-				</tr>
+				<!--<tr>
+					<td class="w-25 py-2"><label for="inputPasswordConfirmation" class="home-control-label"></label></td>
+					<td class="w-75 py-2"><input type="password" class="form-control" name="password_confirmation" 
+						id="inputPasswordConfirmation" placeholder="Repeat password" required /></td>
+				</tr>-->
 
 				
 			</table>
