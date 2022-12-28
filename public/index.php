@@ -9,6 +9,9 @@
 // Require the controller class
 //require '../App/Controllers/Posts.php';
 
+
+ini_set('session.cookier_lifetime', '864000'); //ten days in seconds
+
 // Composer
 require '../vendor/autoload.php';
 

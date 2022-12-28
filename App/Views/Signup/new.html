@@ -1,4 +1,4 @@
-{% extends "baseHome.html" %}
+{% extends "base.html" %}
 
 {% block footer %}
 
@@ -17,7 +17,7 @@
 				}
 				return true;
 			},
-			'Must contain at least one letter and one number'
+			'Hasło musi zawierać przynajmniej 1 cyfrę i 1 literę'
 		);
 		
 		$(document).ready(function() {
@@ -43,10 +43,10 @@
 				},
 				messages: {
 					email: {
-						remote: 'Email already taken'
+						remote: 'Email jest już zajęty'
 					},
 					username: {
-						remote: 'Login already exists'
+						remote: 'Login jest już zajęty'
 					}
 				}
 			});
@@ -83,7 +83,7 @@
 				<tr>
 					<td class="w-25 py-2"><label for="inputUsername" class="home-control-label">Login</label></td>
 					<td class="w-75 py-2"><input type="text" class="form-control" name="username" id="inputUsername" 
-						placeholder="Login" autofocus value="{{ user.username }}" required /></td>
+						placeholder="Podaj login" autofocus value="{{ user.username }}" required /></td>
 				</tr>
 				<!--<?php
 						if(isset($_SESSION['err_login'])) {
@@ -94,7 +94,7 @@
 				<tr>
 					<td class="w-25 py-2"><label for="inputEmail" class="home-control-label">Email</label></td>
 					<td class="w-75 py-2"><input type="email" class="form-control"  name="email" id="inputEmail" 
-						placeholder="Email address" value="{{ user.email }}" required /></td>
+						placeholder="Podaj email" value="{{ user.email }}" required /></td>
 				</tr>
 				<!--<?php
 						if(isset($_SESSION['err_email'])) {
@@ -105,7 +105,7 @@
 				<tr>
 					<td class="w-25 py-2"><label for="inputPassword" class="home-control-label">Hasło</label></td>
 					<td class="w-75 py-2"><input type="password" class="form-control" name="password" id="inputPassword" 
-						placeholder="Password" required /></td>
+						placeholder="Podaj hasło" required /></td>
 				</tr>
 				<!--<?php
 						if(isset($_SESSION['err_pass'])) {

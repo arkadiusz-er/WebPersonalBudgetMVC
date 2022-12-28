@@ -1,4 +1,4 @@
-{% extends "baseHome.html" %}
+{% extends "base.html" %}
 
 {% block body %}
     {% if current_user %}
@@ -9,7 +9,7 @@
     {% else %}
         <ul class="panel-login-registration">
             <li id="login-option" class="home-active-option">Logowanie</li>
-            <a href="signup/new"><li id="registration-option" class="home-noactive-option">Rejestracja</li></a>
+            <a href="/signup/new"><li id="registration-option" class="home-noactive-option">Rejestracja</li></a>
         </ul>
         <div class="panel-login h-75">
             <form method="post" action="/login/create" autocomplete="off">
@@ -21,6 +21,10 @@
                     <tr>
                         <td class="w-25 py-2"><label for="inputPassword" class="home-control-label">Hasło</label></td>
                         <td class="w-75 py-2"><input type="password" class="form-control" name="password" id="inputPassword" placeholder="Podaj hasło" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="checkbox" name="remember_me" id="remember_me" class="mx-2"
+                            {% if remember_me %} checked="checked" {% endif %} /><label for="remember_me">Zapamiętaj mnie</label></td>
                     </tr>
                 </table>
                 <div class="row-panel-home">
