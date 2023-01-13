@@ -1,0 +1,5 @@
+Aktywacja konta
+
+Dziękujemy za rejestrację. Prosimy wejść w poniższy link, aby aktywować konto:
+
+{{ url }}

@@ -42,4 +42,15 @@ class Config {
      * @var boolean
      */
     const SECRET_KEY = 'JtYcY4dERc0yEI4YgeJhGx9C6OCWaZ8y';
+
+    /*
+     * Username of gmail
+     */
+    const MAILS_USERNAME = "xxx";
+
+    /*
+     * Password of username of gmail
+     */
+    const MAILS_PASSWORD = 'xxx';
+
 }

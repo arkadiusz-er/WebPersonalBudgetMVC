@@ -16,11 +16,18 @@ use \App\Models\User;
      * @return void
      */
 
-     public function validateEmailAction() {
-        $is_valid = ! User::emailExists($_GET['email']);
+   public function validateEmailAction() {
+      $is_valid = ! User::emailExists($_GET['email']);
 
-        header('Content-Type: application/json');
-        echo json_encode($is_valid);
-     }
+      header('Content-Type: application/json');
+      echo json_encode($is_valid);
+   }
+
+   public function validateUsernameAction() {
+      $is_valid = ! User::loginExists($_GET['username']);
+
+      header('Content-Type: application/json');
+      echo json_encode($is_valid);
+   }
 
  }

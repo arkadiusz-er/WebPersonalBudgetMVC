@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <div class="panel-login h-75">    
+        <h4>Zapomniałem hasła</h4>
+        <form method="post" action="/password/request-reset">
+            <table class="text-center m-auto">
+                <td class="w-25 py-2"><label for="inputEmail" class="home-control-label">E-mail</label></td>
+                <td class="w-75 py-2"><input type="email" class="form-control" name="email" id="inputEmail" placeholder="Adres email" autofocus required/></td>
+            </table>
+            <div class="row-panel-home">
+                <button type="submit">Send password reset</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

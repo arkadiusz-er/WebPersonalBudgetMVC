@@ -32,15 +32,8 @@
     <main>
         <div class="container">
             <div class="row">
-                <article class="col-md-6 pt-2 text-center">
-                    <img src="/img/personal-budget.jpg" alt="personal-budget" class="img-fluid" />
-                </article>
-                <article class="col-md-6 pt-5 text-center">
-                    <h2 class="h2">Budżet osobisty</h2>
-                    <p>Trzymanie kontroli nad osobistymi czy rodzinnymi finansami ułatwi śledzenie wydatków oraz oszczędności. Dzięki programowi będziesz mógł odpowiednio przeanalizować swój budżet domowy i oszczędzić na wymarzony samochód czy wakacje.</p>
-                    <h3 class="h3">Dostępne opcje</h3>
-                    <p>Dodaj przychód oraz dodaj wydatek - przy pomocy formularzy wypełniamy odpowiednie dane wybierając odpowiednio kwotę, czas, kategorię oraz opcjonalny komenatrz. Przegląd bilansu to podsumowanie naszych przychodów i wydatków w wybranym przez nas ujęciu czasu. W Ustawieniach możemy zmienić dane swojego konta, a także usuwać, modyfikować i dodawać opcje wydatków oraz przychodów - takie jak kategorie czy metody płatności.</p>
-                </article>
+                {% block body %}
+                {% endblock %}
             </div>
         </div>
     </main>
@@ -53,7 +46,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/script.js"></script>
+    <script src="/js/app.js"></script>
 
 </body>
 </html>

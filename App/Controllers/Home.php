@@ -37,6 +37,8 @@ class Home extends \Core\Controller {
      */
     public function indexAction() {
 
+        # \App\Mail::send('ras_ark@o2.pl', 'Test', 'Test', '<h1>Test</h1>');
+        
         View::renderTemplate('Home/index.html');
     }
 

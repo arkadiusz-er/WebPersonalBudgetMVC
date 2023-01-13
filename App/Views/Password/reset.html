@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block footer %}
+
+	<script src="/js/hideShowPassword.min.js"></script>
+
+	<script>
+		
+		$(document).ready(function() {
+			/*
+			 * Validate the form
+			 */
+			$('#formPassword').validate({
+				rules: {
+					password: {
+						required: true,
+						minlength: 6,
+						validPassword: true
+					},
+				}
+			});
+
+			/*
+			 * Show password toggle button
+			 */
+			$('#inputPassword').hideShowPassword({
+				show: false,
+				innerToggle: 'focus'
+			});
+		});
+	</script>
+{% endblock %}
+
+{% block body %}
+	<h2>Resetowanie hasła</h2>
+
+	{% if user.errors is not empty %}
+		<p>Errors:</p>
+		<ul>
+			{% for error in user.errors %}
+				<li>{{ error }}</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+
+	<div class="panel-registration h-75">
+		<form method="post" autocomplete="off" id="formPassword" action="/password/reset-password">
+			
+			<input type="hidden" name="token" value="{{ token }}"/>
+
+			<table class="text-center m-auto">
+				<tr>
+					<td class="w-25 py-2"><label for="inputPassword" class="home-control-label">Hasło</label></td>
+					<td class="w-75 py-2"><input type="password" class="form-control" name="password" id="inputPassword" 
+						placeholder="Podaj hasło" required /></td>
+				</tr>				
+			</table>
+			<div class="row-panel-home">
+				<button type="submit">Zmień hasło</button>
+			</div>
+		</form>
+	</div>
+{% endblock %}
